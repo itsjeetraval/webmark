@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   
+    <style>
+      /* Style for the blue button */
+      .submit-btn {
+          background-color: blue;
+          color: white;
+          margin-left:20px;
+          padding: 10px 30px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+
+      /* Style to increase the size of the search bar */
+      .search-bar {
+          margin-top: 100px;
+          margin-left: 350px;
+          width:600px;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+      }
+
+      /* Styles for speech bubble button */
+
+        .speech-button {
+          font-size: 16px;
+          padding: 10px 20px;
+          background-color: #3498db;
+          color: white;
+          border: none;
+          border-radius: 20px;
+          position: relative;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        .speech-button:hover {
+          background-color: #2980b9;
+        }
+
+        .speech-icon {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background-color: white;
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          clip-path: polygon(100% 0%, 0 50%, 100% 100%);
+        }
+
+        .speech-icon::before {
+          content: '';
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background-color: #3498db;
+          bottom: -5px;
+          right: -5px;
+          transform: rotate(45deg);
+        }
+
+        .speech-icon::after {
+          content: '';
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          background-color: white;
+          bottom: 0;
+          right: 0;
+          border-radius: 50%;
+        }
+
+  </style>
+</head>
+<body>
+
+  {% include "header.html" %}
+
+    <form  method="get">
+      <input type="text" name="websitename" class="search-bar" placeholder="Search Marked Website" >
+      <input type="submit" value="Search" class="submit-btn">
+    </form>
+
+
+  <div class="row">
+    {% for i in webdata %}
+    <div class="col-sm-5 p-lg-5 m-lg-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{i.web_name}}</h5>
+          <p class="card-text text-dark ">{{i.web_description}}</p>
+          <a href="{{i.web_url}}" class="btn btn-primary">Open Website</a>
+          <a href="/update/{{i.id}}" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square ml-lg-4" viewBox="0 0 16 16">
+              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+            </svg>
+           </a>
+         <a href="/delete/{{i.id}}" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill ml-4" viewBox="0 0 16 16">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+          </svg>
+         </a>
+        </div>
+      </div>
+    </div>
+    
+    <!--
+    <div class="col-sm-5 p-lg-5 m-lg-auto ">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Website Name</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div> -->
+    </div>
+   
+  {% empty %}    ---    No Data Found   -->  Add Website 
+
+    {% endfor %}
+  </div>
+
+
+
+  </body>
+</html>

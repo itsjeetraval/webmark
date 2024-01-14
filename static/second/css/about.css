@@ -1,0 +1,37 @@
+body {
+    padding: 40px;
+    font-family: "Lato", "Helvetica", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .featureListItem {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    padding: 10px;
+  }
+  
+  .featureListItem + .featureListItem {
+    border-top: 1px solid #D7DBDD;
+  }
+  
+  .featureListItem--reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .featureListItem__icon,
+  .featureListItem__description {
+    padding: 5px 15px;
+  }
+  
+  .featureListItem__icon {
+    font-size: 50px;
+    line-height: 0;
+    color: #86969C;
+  }
+  
+  .featureListItem__description {
+    color: #86969C;
+    font-size: 12px;
+  }

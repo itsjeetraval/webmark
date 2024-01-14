@@ -1,0 +1,43 @@
+
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Form</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+      <h2>Website Info Form</h2>
+      <form class="website-form" method="post">
+        {% csrf_token %}
+        <label for="website-name">Website Name</label>
+        <input type="text" id="website-name" name="name" placeholder="Name" required>
+  
+        <label for="website-description">Website Description</label>
+        <textarea id="website-description" name="description" rows="3"  placeholder="Description" required></textarea>
+  
+        <label for="website-url">Website URL</label>
+        <input type="text" id="website-url" name="url" placeholder="URL" required>
+  
+        <input type="submit" value="Submit" <!--onclick="saveData-->">
+      </form>
+    </div>
+<!--
+    <script>
+      function saveData() {
+        // Perform actions to save data (you can add your save logic here)
+  
+        // Show alert
+        alert("Data successfully saved");
+  
+        // Redirect after clicking OKh
+           window.location.href = "http://127.0.0.1:8000/";  // Replace with your desired URL
+      }
+    </script> -->
+
+</body>
+</html>

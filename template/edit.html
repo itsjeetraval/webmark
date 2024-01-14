@@ -1,0 +1,30 @@
+
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Form</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+      <h2>Update Website Info Form</h2>
+      <form class="website-form" method="post" action="/edit/{{data.id}}">
+        {% csrf_token %}
+        <label for="website-name">Website Name</label>
+        <input type="text" id="website-name" name="name" placeholder="Name" value='{{data.web_name}}' required>
+  
+        <label for="website-description">Website Description</label>
+        <textarea id="website-description" name="description" rows="3" value='{{data.web_description}}' placeholder="Description" required></textarea>
+  
+        <label for="website-url">Website URL</label>
+        <input type="text" id="website-url" name="url" value="{{data.web_url}}" placeholder="URL" required>
+  
+        <input type="submit" value="Submit" <!--onclick="saveData-->">
+      </form>
+    </div>
+
+</body>
+</html>
